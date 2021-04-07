@@ -1,0 +1,24 @@
+{
+  "name": "Express-Rest-Project",
+  "version": "1.0.0",
+  "description": "Express &amp; Rest Project",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js --watch server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/intradastingly/Express_Rest.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/intradastingly/Express_Rest/issues"
+  },
+  "homepage": "https://github.com/intradastingly/Express_Rest#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7"
+  }
+}
