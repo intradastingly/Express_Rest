@@ -40,8 +40,8 @@ app.put('/api/users/:id', (req, res) => {
                 user.name = req.body.name ? req.body.name : user.name;
                 user.email = req.body.email ? req.body.email : user.nemail;
                 user.status = req.body.status ? req.body.status  : user.status ;
-            }
-            res.json({msg: 'Member updated', user})
+                res.json({msg: 'Member updated', user})
+            }  
         }
     } else {
         res.status(400).json({msg: `No user with the id of ${paramId}`})
