@@ -71,7 +71,6 @@ app.delete('/api/users/:id', (req,res) => {
     const paramId = req.params.id
     const found = userData.find(user => user.id === paramId)
     const findIndex = userData.findIndex(a => a.id === paramId)
-    console.log(findIndex)
     found ? res.json(userData.splice(findIndex, 1)) 
           : res.status(400).json({ msg: `No User with the id of ${paramId}`}) 
     res.json(userData)
