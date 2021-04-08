@@ -10,20 +10,20 @@ Content-Type: application/json
 
 {
         "id": "3",
-        "name": "Flompus MCinguffff",
-        "status": "dead",
+        "name": "Flompfffffffffffffffffffs MCinguffff",
+        "status": "deadfffffffffffffffffffff",
         "email": "snumpio@gmail.com"
 }
 
 ###
-PUT http://localhost:3000/api/users/66b01aa4-731c-4c86-811c-28f52c0874fc
+PUT http://localhost:3000/api/users/917e31fc-95e8-416c-bebb-18a58faf9b38
 Content-Type: application/json
 
 {
+    "name": "floopus",
     "email": "hio@gmail.com"
 }
 
 
 ###
-DELETE http://localhost:3000/api/users/3
-
+DELETE http://localhost:3000/api/users/49e360ba-384c-4a15-9d2f-87b28e06d4fa

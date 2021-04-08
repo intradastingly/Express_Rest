@@ -24,29 +24,27 @@ app.get('/api/users', (req, res) => {
 
 //Gets single User
 app.get('/api/users/:id', (req, res) => {
-    const found = userData.some(user => user.id === parseInt(req.params.id))
-    if(found){
-        res.json(userData.filter(user => user.id === parseInt(req.params.id)))
-    } else {
-        res.status(400).json({msg: `No user with the id of ${req.params.id}`})
-    }
+    const paramId = req.params.id
+    const found = userData.find(user => user.id === paramId)
+    found ? res.json(userData.filter(user => user.id === paramId)) 
+          : res.status(400).json({msg: `No user with the id of ${paramId}`})
 })
 
 //Updates single User
 app.put('/api/users/:id', (req, res) => {
-    const found = userData.some(user => user.id === parseInt(req.params.id))
+    const paramId = req.params.id
+    const found = userData.find(user => user.id === paramId)
     if(found){
-        const updateUser = req.body
         for(const user of userData){
-            if(user.id === parseInt(req.params.id)){
-                user.name = updateUser.name ? updateUser.name : user.name;
-                user.email = updateUser.email ? updateUser.email : user.nemail;
-                user.status = updateUser.status  ? updateUser.status  : user.status ;
+            if(user.id === paramId){
+                user.name = req.body.name ? req.body.name : user.name;
+                user.email = req.body.email ? req.body.email : user.nemail;
+                user.status = req.body.status ? req.body.status  : user.status ;
             }
             res.json({msg: 'Member updated', user})
         }
     } else {
-        res.status(400).json({msg: `No user with the id of ${req.params.id}`})
+        res.status(400).json({msg: `No user with the id of ${paramId}`})
     }
 })
 
@@ -61,7 +59,7 @@ app.post('/api/users', (req, res) => {
     }
 
     if(!newUser.name || !newUser.email || !newUser.status){
-        return res.status(400).json({msg: 'Please include a name and email'})
+        return res.status(400).json({msg: 'Please include valid inputs'})
     }
 
     userData.push(newUser)
@@ -70,9 +68,13 @@ app.post('/api/users', (req, res) => {
 
 
 app.delete('/api/users/:id', (req,res) => {
-    const found = userData.find(user => user.id === parseInt(req.params.id))
-    found ? res.json(userData.splice(found, 1)) 
-    : res.status(400).json({ msg: `No User with the id of ${req.params.id}`})
+    const paramId = req.params.id
+    const found = userData.find(user => user.id === paramId)
+    const findIndex = userData.findIndex(a => a.id === paramId)
+    console.log(findIndex)
+    found ? res.json(userData.splice(findIndex, 1)) 
+          : res.status(400).json({ msg: `No User with the id of ${paramId}`}) 
+    res.json(userData)
 })
 
 //server listener
