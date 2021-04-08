@@ -9,15 +9,21 @@ POST http://localhost:3000/api/users
 Content-Type: application/json
 
 {
-        "id": 7,
+        "id": "3",
         "name": "Flompus MCinguffff",
         "status": "dead",
         "email": "snumpio@gmail.com"
 }
 
 ###
-PUT http://localhost:3000/api/users
+PUT http://localhost:3000/api/users/66b01aa4-731c-4c86-811c-28f52c0874fc
+Content-Type: application/json
+
+{
+    "email": "hio@gmail.com"
+}
+
 
 ###
-DELETE http://localhost:3000/api/users/4
+DELETE http://localhost:3000/api/users/3
 
