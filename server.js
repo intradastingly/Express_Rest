@@ -33,21 +33,13 @@ app.get('/api/users/:id', (req, res) => {
 app.put('/api/users/:id', (req, res) => {
     const paramId = req.params.id
     const found = userData.find(user => user.id === paramId)
-  
     if(found){
         for(const user of userData){
             if(user.id === paramId){
                 user.name = req.body.name ? req.body.name : user.name;
                 user.email = req.body.email ? req.body.email : user.nemail;
                 user.status = req.body.status ? req.body.status  : user.status ;
-                const data = JSON.stringify(newUser, null, 2)
-
-                fs.writeFile('./public/userData.json', user, finished)
-
-                function finished(err){
-                    console.log(err)
-                }
-
+                fs.writeFile('./public/userData.json', JSON.stringify(userData, null, 2), finished)
                 res.json({msg: 'Member updated', user})
             }  
         }
@@ -69,14 +61,8 @@ app.post('/api/users', (req, res) => {
     if(!newUser.name || !newUser.email || !newUser.status){
         return res.status(400).json({msg: 'Please include valid inputs'})
     } else {
-        const data = JSON.stringify(newUser, null, 2)
-        fs.writeFile('./public/userData.json', data, finished)
-
-        function finished(err){
-            console.log(err)
-        }
-
-        /* userData.push(newUser) */
+        userData.push(newUser)
+        fs.writeFile('./public/userData.json', JSON.stringify(userData, null, 2), finished)
         res.status(201).json(userData)
     }
 })
@@ -86,15 +72,14 @@ app.delete('/api/users/:id', (req,res) => {
     const paramId = req.params.id
     const found = userData.find(user => user.id === paramId)
     const findIndex = userData.findIndex(a => a.id === paramId)
-    found ? res.json(userData.splice(findIndex, 1)) 
+    found ? fs.writeFile('./public/userData.json', JSON.stringify(userData.splice(findIndex, 1), null, 2), finished)
           : res.status(400).json({ msg: `No User with the id of ${paramId}`}) 
     res.json(userData)
 })
 
-/* function saveUserToPublicFolder(user, callback) {
-    console.log('test')
-    fs.writeFile('./public/userData.json', JSON.stringify(user), callback);
-} */
+function finished(err){
+    console.log(err)
+}
 
 //server listener
 app.listen(PORT, () => {

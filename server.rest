@@ -3,7 +3,7 @@ GET http://localhost:3000/api/users
 
 ###
 
-GET http://localhost:3000/api/users/1
+GET http://localhost:3000/api/users/566ff71f-93c0-4d42-80c7-b5afdde47264
 
 ###
 POST http://localhost:3000/api/users
@@ -16,7 +16,7 @@ Content-Type: application/json
 }
 
 ###
-PUT http://localhost:3000/api/users/162695d7-aaac-4c10-a2ea-dcd158bc47d6
+PUT http://localhost:3000/api/users/566ff71f-93c0-4d42-80c7-b5afdde47264
 Content-Type: application/json
 
 {
@@ -26,4 +26,4 @@ Content-Type: application/json
 
 
 ###
-DELETE http://localhost:3000/api/users/eb5f0c8f-0158-4f33-8218-1dce300a6afe
+DELETE http://localhost:3000/api/users/566ff71f-93c0-4d42-80c7-b5afdde47264
