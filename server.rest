@@ -1,1 +1,29 @@
-GET http://localhost:3000
+
+GET http://localhost:3000/api/users
+
+###
+
+GET http://localhost:3000/api/users/566ff71f-93c0-4d42-80c7-b5afdde47264
+
+###
+POST http://localhost:3000/api/users
+Content-Type: application/json
+
+{
+        "name": "Flompfffffffffffffffffffs MCinguffff",
+        "status": "deadffdddffdddddfffffffffffffffff",
+        "email": "snumpio@gmail.com"
+}
+
+###
+PUT http://localhost:3000/api/users/566ff71f-93c0-4d42-80c7-b5afdde47264
+Content-Type: application/json
+
+{
+    "name": "floopusccc",
+    "email": "hio@gmail.com"
+}
+
+
+###
+DELETE http://localhost:3000/api/users/566ff71f-93c0-4d42-80c7-b5afdde47264
