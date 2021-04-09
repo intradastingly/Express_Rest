@@ -2,7 +2,11 @@ const express = require('express');
 const uuid = require('uuid');
 const app = express();
 const PORT = process.env.PORT || 3000;
-const userData = require('./Users')
+const fs = require('fs')
+/* const userData = require('./Users') */
+
+const rawData = fs.readFileSync('./public/userData.json')
+const userData = JSON.parse(rawData)
 
 //serve static html page
 app.use(express.static('public'))
@@ -10,12 +14,6 @@ app.use(express.static('public'))
 //parser 
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
-
-/* const logger = (req, res, next) => {
-    console.log(`${req.protocol}://${req.get('host')}${req.originalUrl}`)
-    next()
-}
-app.use(logger) */
 
 //Gets all Users
 app.get('/api/users', (req, res) => {    
@@ -34,6 +32,7 @@ app.get('/api/users/:id', (req, res) => {
 app.put('/api/users/:id', (req, res) => {
     const paramId = req.params.id
     const found = userData.find(user => user.id === paramId)
+
     if(found){
         for(const user of userData){
             if(user.id === paramId){
@@ -75,6 +74,10 @@ app.delete('/api/users/:id', (req,res) => {
           : res.status(400).json({ msg: `No User with the id of ${paramId}`}) 
     res.json(userData)
 })
+
+function savePersonToPublicFolder(user, callback) {
+    fs.writeFile('./public/userData.json', JSON.stringify(user), callback);
+}
 
 //server listener
 app.listen(PORT, () => {
