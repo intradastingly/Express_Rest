@@ -11,12 +11,12 @@ Content-Type: application/json
 
 {
         "name": "Flompfffffffffffffffffffs MCinguffff",
-        "status": "deadfffffffffffffffffffff",
+        "status": "deadffdddffdddddfffffffffffffffff",
         "email": "snumpio@gmail.com"
 }
 
 ###
-PUT http://localhost:3000/api/users/9c19b155-d176-48f4-b0e8-d4f6993bb2dc
+PUT http://localhost:3000/api/users/162695d7-aaac-4c10-a2ea-dcd158bc47d6
 Content-Type: application/json
 
 {
