@@ -1,3 +1,4 @@
+
 GET http://localhost:3000/api/users
 
 ###
@@ -15,11 +16,11 @@ Content-Type: application/json
 }
 
 ###
-PUT http://localhost:3000/api/users/917e31fc-95e8-416c-bebb-18a58faf9b38
+PUT http://localhost:3000/api/users/9c19b155-d176-48f4-b0e8-d4f6993bb2dc
 Content-Type: application/json
 
 {
-    "name": "floopus",
+    "name": "floopusccc",
     "email": "hio@gmail.com"
 }
 
