@@ -16,12 +16,13 @@ Content-Type: application/json
 }
 
 ###
-PUT http://localhost:3000/api/users/566ff71f-93c0-4d42-80c7-b5afdde47264
+PUT http://localhost:3000/api/users/566ff71f-93c0-4d42-80c7-b5afdde47654
 Content-Type: application/json
 
 {
-    "name": "floopusccc",
-    "email": "hio@gmail.com"
+    "name": "floop us",
+    "email": "hiofff@gmail.com",
+    "status": "alive"
 }
 
 

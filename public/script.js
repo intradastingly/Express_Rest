@@ -2,29 +2,105 @@
 
 window.addEventListener('load', initSite);
 
-async function initSite() {
-    console.log('init')
-    /* getSpecificUserData('5682c6dc-779d-4752-a4cd-a94110afce2a') */
-   /*  
-    const UserData = await getSpecificUserData('b59a594e-a244-4819-8d8b-a7fc74261014') */
-    const deleted = await deleteUser('f58bd98d-8856-467f-b619-fe1588bdc174')
-    const allData = await getAlluserData()
-    /* const stuff = await saveNewUser("asaf", 'haha', 'w') */
-    /*
-    console.log(UserData)
-    console.log(stuff) */
-    console.log(allData)
-    console.log(deleted)
+function initSite() {
+    populate()
+    eventListeners()
+    modal()
 }
 
-async function getAlluserData() {
-    const userData = await makeRequest("/api/users", "GET")
-    return userData
+function eventListeners(){ 
+    const card = document.getElementsByClassName('container')
+    const buttons = document.getElementsByClassName('button')
+    for(const button of buttons){ button.addEventListener('click', modal) }
+    setTimeout(()=> {
+        for(const cards of card){ cards.addEventListener('click', selectCard) }
+    }, 50) 
+}
+
+async function populate() {
+    const allData = await makeRequest("/api/users", "GET")
+    allData.map(i => {
+        const userDiv = document.getElementById('allData')
+        const containerDiv = document.createElement('div');
+        const name = document.createElement('li');
+        const email = document.createElement('li');
+        const status = document.createElement('li');
+        /* const expand = document.createElement('button') */
+        containerDiv.className = 'container';
+        containerDiv.id = i.id;
+        name.innerHTML = "name: " + i.name;
+        email.innerHTML = "email: " + i.email;
+        status.innerHTML = "status: "+ i.status;
+        /* expand.innerHTML = "Expand" */
+        containerDiv.appendChild(name)
+        containerDiv.appendChild(email)
+        containerDiv.appendChild(status)
+        /* containerDiv.appendChild(expand) */
+        userDiv.appendChild(containerDiv)    
+    })
+}
+
+function selectCard(event){
+    const cards = document.getElementsByClassName('container')
+    const deselect = document.getElementById("new")
+    for(const card of cards){
+        deselect.addEventListener('click', () => card.classList.remove('highlighted'))
+        if(event.target.id === card.id){
+            card.classList.add('highlighted')
+            deleteUser(card.id)
+            updateSelected(card.id)
+        } else {
+            card.classList.remove('highlighted')
+        }
+    }
+}
+
+function modal(event){
+    const editView = document.getElementById('editUser')
+    const newView = document.getElementById('newUser')
+    event.target.id === "editButton" ? editView.style.display = "flex" : editView.style.display = "none";
+    event.target.id === "new" ? newView.style.display = "flex" : newView.style.display = "none";
+    /* event.target.id === "expand" ? */
+}
+
+function deleteUser(id) {
+    const deleteUserr = document.getElementById('deleteButton')
+    deleteUserr.addEventListener('click', async () => {
+        await makeRequest("/api/users/" + id, "DELETE")
+        location.reload();
+    }) 
+}
+
+async function updateSelected(id){
+    const allData = await makeRequest("/api/users", "GET")
+    const editUser = document.getElementById('editUserForm')
+    for(const data of allData){
+            if(data.id === id){
+            editUser.name.value = data.name
+            editUser.email.value = data.email
+            editUser.status.value = data.status
+        }
+    }
+    editUser.action = `/api/users/${id}`;
+    editUser.onsubmit = async () => {
+        await updateUserData(id, editUser.name.value, editUser.email.value, editUser.status.value) 
+        location.reload();
+    }
 }
 
 async function getSpecificUserData(id) {
     const user = await makeRequest("/api/users/" + id, "GET")
     return user
+}
+
+async function updateUserData(id, name, email, status){
+    const body = {
+        name: name,
+        email: email,
+        status: status
+    }
+    const updatedData = await makeRequest("/api/users/" + id, "PUT", body)
+    return updatedData
 }
 
 async function saveNewUser(name, email, dead) {
@@ -37,13 +113,7 @@ async function saveNewUser(name, email, dead) {
     return stuff
 }
 
-async function deleteUser(id) {
-    const deleted = await makeRequest("/api/users/" + id, "DELETE")
-    return deleted
-}
-
 async function makeRequest(url,method,body){
-   
     const response = await fetch(url, {
         method: method,
         body: JSON.stringify(body),
@@ -51,9 +121,11 @@ async function makeRequest(url,method,body){
             'Content-type': 'application/json'
         }
     })
-
     const result = await response.json()
-
     return result
+}
+
+function formSubmit(){
+    setTimeout(function(){window.location.reload();},10);
 }
 

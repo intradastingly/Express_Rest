@@ -2,3 +2,61 @@ body {
     margin: 0;
     background: rgb(98, 98, 143);
 }
+
+#allData {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.container {
+    margin: 1rem;
+    padding: 1rem;
+    border-style: dotted;
+}
+
+#button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button {
+    width: 5rem;
+    margin: 1rem;
+}
+
+li {
+    pointer-events: none 
+}
+
+#container {
+    margin: 1rem;
+    padding: 1rem;
+    border-style: dotted;
+}
+
+.highlighted {
+    background-color: blueviolet;
+}
+
+#editUser {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#newUser {
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+form {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
