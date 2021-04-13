@@ -60,3 +60,20 @@ form {
     flex-direction: column;
     justify-content: center;
 }
+
+#expand{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    width: 100%;
+}
+
+#filler {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    background-color: black;
+    height: 50rem;
+    width: 50rem;
+}

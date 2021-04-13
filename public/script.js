@@ -8,9 +8,13 @@ function initSite() {
     modal()
 }
 
+//add true false boolean to edit and expand 
+
 function eventListeners(){ 
     const card = document.getElementsByClassName('container')
     const buttons = document.getElementsByClassName('button')
+    const expand = document.getElementById('expandButton')
+    expand.addEventListener('click', expandData)
     for(const button of buttons){ button.addEventListener('click', modal) }
     setTimeout(()=> {
         for(const cards of card){ cards.addEventListener('click', selectCard) }
@@ -49,6 +53,7 @@ function selectCard(event){
             card.classList.add('highlighted')
             deleteUser(card.id)
             updateSelected(card.id)
+            getSpecificUserData(card.id)
         } else {
             card.classList.remove('highlighted')
         }
@@ -60,7 +65,6 @@ function modal(event){
     const newView = document.getElementById('newUser')
     event.target.id === "editButton" ? editView.style.display = "flex" : editView.style.display = "none";
     event.target.id === "new" ? newView.style.display = "flex" : newView.style.display = "none";
-    /* event.target.id === "expand" ? */
 }
 
 function deleteUser(id) {
@@ -88,8 +92,21 @@ async function updateSelected(id){
     }
 }
 
+function expandData(){
+    const expand = document.getElementById('expand');
+    const close = document.getElementById('close');
+    expand.style.display = "flex";
+    close.addEventListener('click', () => {
+        expand.style.display = "none";
+    })
+}
+
 async function getSpecificUserData(id) {
     const user = await makeRequest("/api/users/" + id, "GET")
+    const expandInfo = document.getElementById('expandedData')
+    user.map(i => {
+        console.log(i.name)
+    })
     return user
 }
 
