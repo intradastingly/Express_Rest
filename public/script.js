@@ -1,4 +1,5 @@
 
+
 window.addEventListener('load', initSite);
 
 function initSite() {
@@ -24,25 +25,30 @@ async function populate() {
         const name = document.createElement('li');
         const email = document.createElement('li');
         const status = document.createElement('li');
+        /* const expand = document.createElement('button') */
         containerDiv.className = 'container';
         containerDiv.id = i.id;
         name.innerHTML = "name: " + i.name;
         email.innerHTML = "email: " + i.email;
         status.innerHTML = "status: "+ i.status;
+        /* expand.innerHTML = "Expand" */
         containerDiv.appendChild(name)
         containerDiv.appendChild(email)
         containerDiv.appendChild(status)
+        /* containerDiv.appendChild(expand) */
         userDiv.appendChild(containerDiv)    
     })
 }
 
 function selectCard(event){
     const cards = document.getElementsByClassName('container')
+    const deselect = document.getElementById("new")
     for(const card of cards){
+        deselect.addEventListener('click', () => card.classList.remove('highlighted'))
         if(event.target.id === card.id){
             card.classList.add('highlighted')
             deleteUser(card.id)
-            update(card.id)
+            updateSelected(card.id)
         } else {
             card.classList.remove('highlighted')
         }
@@ -50,11 +56,11 @@ function selectCard(event){
 }
 
 function modal(event){
-    if(event.target === undefined) {return null};
     const editView = document.getElementById('editUser')
     const newView = document.getElementById('newUser')
     event.target.id === "editButton" ? editView.style.display = "flex" : editView.style.display = "none";
-    event.target.id === "update" ? newView.style.display = "flex" : newView.style.display = "none";
+    event.target.id === "new" ? newView.style.display = "flex" : newView.style.display = "none";
+    /* event.target.id === "expand" ? */
 }
 
 function deleteUser(id) {
@@ -65,7 +71,7 @@ function deleteUser(id) {
     }) 
 }
 
-async function update(id){
+async function updateSelected(id){
     const allData = await makeRequest("/api/users", "GET")
     const editUser = document.getElementById('editUserForm')
     for(const data of allData){
