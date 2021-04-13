@@ -1,16 +1,18 @@
 
 window.addEventListener('load', initSite);
 
-async function initSite() {
+function initSite() {
     populate()
     eventListeners()
-    deleteSelected()
+    /* modal() */
 }
 
 function eventListeners(){ 
     const card = document.getElementsByClassName('container')
+    const buttons = document.getElementsByClassName('button')
+    for(const button of buttons){ button.addEventListener('click', modal) }
     setTimeout(()=> {
-        for(const cards of card){cards.addEventListener('click', selectCard)}
+        for(const cards of card){ cards.addEventListener('click', selectCard) }
     }, 50) 
 }
 
@@ -34,19 +36,28 @@ async function populate() {
     })
 }
 
-async function selectCard(event){
+function selectCard(event){
     const cards = document.getElementsByClassName('container')
     for(const card of cards){
         if(event.target.id === card.id){
             card.classList.add('highlighted')
             deleteUser(card.id)
+            updateUserData(card.id, card)
         } else {
             card.classList.remove('highlighted')
         }
     }
 }
 
-async function deleteUser(id) {
+function modal(event){
+    if(event.target === undefined) {return null};
+    const editView = document.getElementById('editUser')
+    const newView = document.getElementById('newUser')
+    event.target.id === "editButton" ? editView.style.display = "flex" : editView.style.display = "none";
+    event.target.id === "update" ? newView.style.display = "flex" : newView.style.display = "none";
+}
+
+function deleteUser(id) {
     const deleteUserr = document.getElementById('deleteButton')
     deleteUserr.addEventListener('click', async () => {
         await makeRequest("/api/users/" + id, "DELETE")
@@ -54,9 +65,31 @@ async function deleteUser(id) {
     }) 
 }
 
+function updateUserData(id){
+    const editUser = document.getElementById('editUserForm')
+    const name = editUser.name.value
+    const email = editUser.email.value
+    const status = editUser.status.value
+    editUser.action = `/api/users/${id}`
+    editUser.onsubmit = async () => {
+        await updateUserData(id, name, email, status)
+        
+    }
+}
+
 async function getSpecificUserData(id) {
     const user = await makeRequest("/api/users/" + id, "GET")
     return user
+}
+
+async function updateUserData(id, name, email, status){
+    const body = {
+        name: name,
+        email: email,
+        status: status
+    }
+    const updatedData = await makeRequest("/api/users/" + id, "PUT", body)
+    return updatedData
 }
 
 async function saveNewUser(name, email, dead) {
@@ -69,10 +102,7 @@ async function saveNewUser(name, email, dead) {
     return stuff
 }
 
-
-
 async function makeRequest(url,method,body){
-   
     const response = await fetch(url, {
         method: method,
         body: JSON.stringify(body),
@@ -80,9 +110,11 @@ async function makeRequest(url,method,body){
             'Content-type': 'application/json'
         }
     })
-
     const result = await response.json()
-
     return result
+}
+
+function formSubmit(){
+    setTimeout(function(){window.location.reload();},10);
 }
 

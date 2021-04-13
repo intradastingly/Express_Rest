@@ -40,3 +40,23 @@ li {
 .highlighted {
     background-color: blueviolet;
 }
+
+#editUser {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#newUser {
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+form {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

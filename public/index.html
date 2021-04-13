@@ -14,18 +14,36 @@
         <!-- code injected with javascript -->
     </div>
     <div id="button-container">
-        <button id="editButton" class="button">Edit</button>
-        <button id="update" class="button">New</button>
+        <div id="modal">
+            <button id="editButton" class="button">Edit</button>
+            <button id="update" class="button">New</button>
+        </div>
         <button id="deleteButton"class="button">Delete</button>
     </div>
-    <form target="_blank" action="/api/users" method="post">
-        <label for="name">First name:</label>
-        <input type="text" id="fname" name="name"><br><br>
-        <label for="email">Last name:</label>
-        <input type="text" id="lname" name="email"><br><br>
-        <label for="status">Last name:</label>
-        <input type="text" id="lname" name="status"><br><br>
-        <input type="submit" value="Submit">
-    </form>
+    <div id="newUser">
+        <form onsubmit="formSubmit()" action="/api/users" method="post">
+            <h2>Save</h2>
+            <label for="name">First name:</label>
+            <input type="text" id="fname" name="name"><br><br>
+            <label for="email">Last name:</label>
+            <input type="text" id="lname" name="email"><br><br>
+            <label for="status">Status:</label>
+            <input type="text" id="lname" name="status"><br><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <div id="editUser">
+        
+        <form  method="put" id="editUserForm">
+            <h2>Edit</h2>
+            <label for="name">First name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+            <label for="email">Last name:</label>
+            <input type="text" id="email" name="email" required><br><br>
+            <label for="status">Status:</label>
+            <input type="text" id="status" name="status" required><br><br>
+            <input type="submit" value="Submit" id="submit">
+        </form>
+    </div>
 </body>
 </html>
