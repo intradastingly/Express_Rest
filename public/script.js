@@ -69,18 +69,16 @@ async function update(id){
     const allData = await makeRequest("/api/users", "GET")
     const editUser = document.getElementById('editUserForm')
     for(const data of allData){
-        if(data.id === id){
-        editUser.name.value = data.name
-        editUser.email.value = data.email
-        editUser.status.value = data.status
+            if(data.id === id){
+            editUser.name.value = data.name
+            editUser.email.value = data.email
+            editUser.status.value = data.status
+        }
     }
-    }
-    const name = editUser.name.value
-    const email = editUser.email.value
-    const status = editUser.status.value
     editUser.action = `/api/users/${id}`;
     editUser.onsubmit = async () => {
-        await updateUserData(id, name, email, status) 
+        await updateUserData(id, editUser.name.value, editUser.email.value, editUser.status.value) 
+        location.reload();
     }
 }
 
