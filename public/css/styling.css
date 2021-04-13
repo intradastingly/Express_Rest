@@ -26,3 +26,17 @@ body {
     width: 5rem;
     margin: 1rem;
 }
+
+li {
+    pointer-events: none 
+}
+
+#container {
+    margin: 1rem;
+    padding: 1rem;
+    border-style: dotted;
+}
+
+.highlighted {
+    background-color: blueviolet;
+}

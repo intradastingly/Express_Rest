@@ -1,20 +1,14 @@
 [
   {
-    "id": "566ff71f-93c0-4d42-80c7-b5afdde47669",
-    "name": "floop",
-    "email": "hio@gmail.com",
-    "status": "dead"
+    "id": "9dfd8cdf-93b7-41cb-8c5a-97e9418badf7",
+    "name": "Asaf",
+    "email": "asaf_lackgren@hotmail.com",
+    "status": "affff"
   },
   {
-    "id": "566ff71f-93c0-4d42-80c7-b5afdde47864",
-    "name": "floop us",
-    "email": "hiofff@gmail.com",
-    "status": "dead"
-  },
-  {
-    "id": "566ff71f-93c0-4d42-80c7-b5afdde47654",
-    "name": "floop us",
-    "email": "hiofff@gmail.com",
-    "status": "alive"
+    "id": "84ff9b04-2b6f-40cc-a4a3-0e5f264a951f",
+    "name": "Asaf",
+    "email": "asaf_lackgren@hotmail.com",
+    "status": "affff"
   }
 ]
