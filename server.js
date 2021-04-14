@@ -39,6 +39,8 @@ app.put('/api/users/:id', (req, res) => {
                 user.name = req.body.name ? req.body.name : user.name;
                 user.email = req.body.email ? req.body.email : user.nemail;
                 user.status = req.body.status ? req.body.status  : user.status ;
+                user.url = req.body.url ? req.body.url  : user.url ;
+                user.description = req.body.description ? req.body.description  : user.description ;
                 fs.writeFile('./public/userData.json', JSON.stringify(userData, null, 2), finished)
                 res.json({msg: 'Member updated', user})
             }  
@@ -55,10 +57,12 @@ app.post('/api/users', (req, res) => {
         id: uuid.v4(),
         name: req.body.name,
         email: req.body.email,
-        status: req.body.status
+        status: req.body.status,
+        url: req.body.url,
+        description: req.body.description
     }
 
-    if(!newUser.name || !newUser.email || !newUser.status){
+    if(!newUser.name || !newUser.email || !newUser.status || !newUser.url|| !newUser.description){
         return res.status(400).json({msg: 'Please include valid inputs'})
     } else {
         userData.push(newUser)

@@ -24,12 +24,14 @@ async function populate() {
     const allData = await makeRequest("/api/users", "GET")
     allData.map(i => {
         const userDiv = document.getElementById('allData')
+        const img = document.createElement('img')
         const containerDiv = document.createElement('div');
         const name = document.createElement('li');
         const email = document.createElement('li');
         const status = document.createElement('li');
         containerDiv.className = 'container';
         containerDiv.id = i.id;
+        img.src = i.url
         name.innerHTML = "name: " + i.name;
         email.innerHTML = "email: " + i.email;
         status.innerHTML = "status: "+ i.status;
@@ -158,8 +160,6 @@ async function makeRequest(url,method,body){
     const result = await response.json()
     return result
 }
-
-console.log(selected)
 
 function formSubmit(){
     setTimeout(function(){window.location.reload();},10);
