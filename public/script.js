@@ -1,6 +1,6 @@
-
-
 window.addEventListener('load', initSite);
+
+let selected = false;
 
 function initSite() {
     populate()
@@ -9,7 +9,6 @@ function initSite() {
 }
 
 //add true false boolean to edit and expand 
-
 function eventListeners(){ 
     const card = document.getElementsByClassName('container')
     const buttons = document.getElementsByClassName('button')
@@ -29,41 +28,46 @@ async function populate() {
         const name = document.createElement('li');
         const email = document.createElement('li');
         const status = document.createElement('li');
-        /* const expand = document.createElement('button') */
         containerDiv.className = 'container';
         containerDiv.id = i.id;
         name.innerHTML = "name: " + i.name;
         email.innerHTML = "email: " + i.email;
         status.innerHTML = "status: "+ i.status;
-        /* expand.innerHTML = "Expand" */
         containerDiv.appendChild(name)
         containerDiv.appendChild(email)
         containerDiv.appendChild(status)
-        /* containerDiv.appendChild(expand) */
         userDiv.appendChild(containerDiv)    
     })
 }
 
 function selectCard(event){
-    const cards = document.getElementsByClassName('container')
-    const deselect = document.getElementById("new")
+    const cards = document.getElementsByClassName('container');
+    const deselect = document.getElementById("new");
     for(const card of cards){
-        deselect.addEventListener('click', () => card.classList.remove('highlighted'))
+        deselect.addEventListener('click', () => {
+            selected = false;
+            card.classList.remove('highlighted');
+        });
         if(event.target.id === card.id){
-            card.classList.add('highlighted')
-            deleteUser(card.id)
-            updateSelected(card.id)
-            getSpecificUserData(card.id)
+            selected = true;
+            card.classList.add('highlighted');
+            deleteUser(card.id);
+            updateSelected(card.id);
+            getSpecificUserData(card.id);
         } else {
-            card.classList.remove('highlighted')
+            card.classList.remove('highlighted');
         }
     }
-}
+};
 
 function modal(event){
     const editView = document.getElementById('editUser')
     const newView = document.getElementById('newUser')
-    event.target.id === "editButton" ? editView.style.display = "flex" : editView.style.display = "none";
+    if(selected){
+        event.target.id === "editButton" 
+        ? editView.style.display = "flex" 
+        : editView.style.display = "none";
+    }
     event.target.id === "new" ? newView.style.display = "flex" : newView.style.display = "none";
 }
 
@@ -72,6 +76,7 @@ function deleteUser(id) {
     deleteUserr.addEventListener('click', async () => {
         await makeRequest("/api/users/" + id, "DELETE")
         location.reload();
+        selected = false;
     }) 
 }
 
@@ -89,23 +94,38 @@ async function updateSelected(id){
     editUser.onsubmit = async () => {
         await updateUserData(id, editUser.name.value, editUser.email.value, editUser.status.value) 
         location.reload();
+        selected = false;
     }
 }
 
 function expandData(){
-    const expand = document.getElementById('expand');
-    const close = document.getElementById('close');
-    expand.style.display = "flex";
-    close.addEventListener('click', () => {
-        expand.style.display = "none";
-    })
+    if(selected){
+        const expand = document.getElementById('expand');
+        const close = document.getElementById('close');
+        expand.style.display = "flex";
+        close.addEventListener('click', () => {
+            expand.style.display = "none";
+            selected = false;
+        })
+    }
 }
 
 async function getSpecificUserData(id) {
     const user = await makeRequest("/api/users/" + id, "GET")
     const expandInfo = document.getElementById('expandedData')
     user.map(i => {
-        console.log(i.name)
+        const containerDiv = document.createElement('div');
+        const name = document.createElement('li');
+        const email = document.createElement('li');
+        const status = document.createElement('li');
+        containerDiv.id = 'exContainer';
+        name.innerHTML = "name: " + i.name;
+        email.innerHTML = "email: " + i.email;
+        status.innerHTML = "status: "+ i.status;
+        containerDiv.appendChild(name)
+        containerDiv.appendChild(email)
+        containerDiv.appendChild(status)
+        expandInfo.appendChild(containerDiv)    
     })
     return user
 }
@@ -141,6 +161,8 @@ async function makeRequest(url,method,body){
     const result = await response.json()
     return result
 }
+
+console.log(selected)
 
 function formSubmit(){
     setTimeout(function(){window.location.reload();},10);

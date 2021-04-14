@@ -1,11 +1,5 @@
 [
   {
-    "id": "bf392fd7-c9f5-49fd-b663-d78ed9324df4",
-    "name": "Gizmo the dog",
-    "email": "woof@woofer.com",
-    "status": "Alive"
-  },
-  {
     "id": "6a861be1-f4f1-4131-9180-ecac2a4f702f",
     "name": "doggo",
     "email": "asaf_lackgren@hotmail.com",
@@ -16,5 +10,11 @@
     "name": "Asaf",
     "email": "asaf_lackgren@hotmail.com",
     "status": "fasfa"
+  },
+  {
+    "id": "a496fadd-89da-4afd-8408-d2b8be952ec3",
+    "name": "Asaf",
+    "email": "asaf_lackgren@hotmail.com",
+    "status": "af"
   }
 ]
