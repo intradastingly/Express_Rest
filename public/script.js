@@ -21,23 +21,25 @@ function eventListeners(){
 }
 
 async function populate() {
-    const allData = await makeRequest("/api/users", "GET")
+    const allData = await makeRequest("/api/memes", "GET")
     allData.map(i => {
         const userDiv = document.getElementById('allData')
         const img = document.createElement('img')
         const containerDiv = document.createElement('div');
+        const textContainerDiv = document.createElement('div');
         const name = document.createElement('li');
         const status = document.createElement('li');
         containerDiv.className = 'container';
+        textContainerDiv.className = 'textContainerDiv';
         containerDiv.id = i.id;
         img.src = i.url;
-        img.width = 200;
-        img.height = 200;
+        img.className = "container-image";
         name.innerHTML = "name: " + i.name;
         status.innerHTML = "status: "+ i.status;
         containerDiv.appendChild(img)
-        containerDiv.appendChild(name)
-        containerDiv.appendChild(status)
+        textContainerDiv.appendChild(name)
+        textContainerDiv.appendChild(status)
+        containerDiv.appendChild(textContainerDiv)
         userDiv.appendChild(containerDiv)    
     })
 }
@@ -47,17 +49,17 @@ function selectCard(event){
     const deselect = document.getElementById("new");
     const close = document.getElementById("close")
     for(const card of cards){
-        deselect.addEventListener('click', () => {
-            selected = false;
-            card.classList.remove('highlighted');
-        });
-        close.addEventListener('click', () => card.classList.remove('highlighted'))
+            deselect.addEventListener('click', () => {
+                selected = false;
+                card.classList.remove('highlighted');
+            });
+            close.addEventListener('click', () => card.classList.remove('highlighted'))
         if(event.target.id === card.id){
             selected = true;
             card.classList.add('highlighted');
-            deleteUser(card.id);
+            deleteMeme(card.id);
             updateSelected(card.id);
-            getSpecificUserData(card.id);
+            getSpecificMemeData(card.id);
         } else {
             card.classList.remove('highlighted');
         }
@@ -75,30 +77,40 @@ function modal(event){
     event.target.id === "new" ? newView.style.display = "flex" : newView.style.display = "none";
 }
 
-function deleteUser(id) {
-    const deleteUserr = document.getElementById('deleteButton')
-    deleteUserr.addEventListener('click', async () => {
-        await makeRequest("/api/users/" + id, "DELETE")
+function deleteMeme(id) {
+    const deleteMeme = document.getElementById('deleteButton')
+    deleteMeme.addEventListener('click', async () => {
+        await makeRequest("/api/memes/" + id, "DELETE")
         location.reload();
         selected = false;
     }) 
 }
 
 async function updateSelected(id){
-    const allData = await makeRequest("/api/users", "GET")
+    const allData = await makeRequest("/api/memes", "GET")
     const editUser = document.getElementById('editUserForm')
+    const editingTitle = document.getElementById('editing')
+     
     for(const data of allData){
             if(data.id === id){
+                editingTitle.innerHTML = "Editing: " + data.name;
                 editUser.name.value = data.name;
-                editUser.email.value = data.email;
+                editUser.appeared.value = data.appeared;
                 editUser.status.value = data.status;
                 editUser.url.value = data.url;
                 editUser.description.value = data.description;
         }
     }
-    editUser.action = `/api/users/${id}`;
+    editUser.action = `/api/memes/${id}`;
     editUser.onsubmit = async () => {
-        await updateUserData(id, editUser.name.value, editUser.email.value, editUser.status.value, editUser.url.value, editUser.description.value) 
+        await updateMemeData(
+            id, 
+            editUser.name.value, 
+            editUser.appeared.value, 
+            editUser.status.value, 
+            editUser.url.value, 
+            editUser.description.value
+            ) 
         location.reload();
         selected = false;
     }
@@ -116,42 +128,46 @@ function expandData(){
     }
 }
 
-async function getSpecificUserData(id) {
-    const user = await makeRequest("/api/users/" + id, "GET")
+async function getSpecificMemeData(id) {
+    const meme = await makeRequest("/api/memes/" + id, "GET")
     if(selected){
-        user.map(i => {
+        meme.map(i => {
+            const img = document.getElementById('exImg');
             const name = document.getElementById('exName');
-            const email = document.getElementById('exEmail');
+            const appeared = document.getElementById('exEmail');
             const status = document.getElementById('exStatus');
+            const description = document.getElementById('exDescription');
+            img.src = i.url
             name.innerHTML = "name: " + i.name;
-            email.innerHTML = "email: " + i.email;
-            status.innerHTML = "status: "+ i.status;
+            appeared.innerHTML = "appeared: " + i.appeared;
+            status.innerHTML = "status: " + i.status;
+            description.innerHTML = "description" + i.description; 
         }) 
     } 
-    return user
+    return meme
 }
 
-async function updateUserData(id, name, email, status, url, description){
+async function updateMemeData(id, name, appeared, status, url, description){
     const body = {
         name: name,
-        email: email,
+        appeared: appeared,
         status: status,
         url: url,
         description: description
     }
-    const updatedData = await makeRequest("/api/users/" + id, "PUT", body)
+    const updatedData = await makeRequest("/api/memes/" + id, "PUT", body)
     return updatedData
 }
 
-async function saveNewUser(name, email, status, url, description) {
+async function saveNewMeme(name, appeared, status, url, description) {
     const body = {
         name: name,
-        email: email,
+        appeared: appeared,
         status: status,
         url: url,
         description: description
     }
-    const stuff = await makeRequest("/api/users", "POST", body)
+    const stuff = await makeRequest("/api/memes", "POST", body)
     return stuff
 }
 

@@ -9,21 +9,25 @@
     <script defer src="script.js"></script>
 </head>
 <body>
-    <h1>Users</h1>
+    <h1>Meme database</h1>
     <div id="expand">
         <div id='filler'>
             <div id="expandedData">
                 <div id="exContainer">
-                    <li id="exName"></li>
-                    <li id="exEmail"></li>
-                    <li id="exStatus"></li>
+                    <img id="exImg">
+                    <li id="exName"><!-- code injected with javascript --></li>
+                    <li id="exEmail"><!-- code injected with javascript --></li>
+                    <li id="exStatus"><!-- code injected with javascript --></li>
+                    <p id='exDescription'><!-- code injected with javascript --></p>
                 </div>
             </div>
             <button id="close" class="button">Close</button>
         </div> 
     </div>
     <div id="allData">
+        
         <!-- code injected with javascript -->
+        
     </div>
     <div id="button-container">
         <div id="modal">
@@ -35,34 +39,34 @@
     </div>
     <div id="newUser">
         <form onsubmit="formSubmit()" action="/api/users" method="post">
-            <h2>Save</h2>
-            <label for="name">First name:</label>
-            <input type="text" id="fname" name="name"><br><br>
-            <label for="email">Email:</label>
-            <input type="text" id="lname" name="email"><br><br>
+            <h2>New</h2>
+            <label for="name">Name:</label>
+            <input type="text" id="fname" name="name" required><br><br>
+            <label for="email">First Appeared:</label>
+            <input type="text" id="lname" name="email" required><br><br>
             <label for="status">Status:</label>
-            <input type="text" id="lname" name="status"><br><br>
+            <input type="text" id="lname" name="status" required><br><br>
             <label for="url">ImageURL:</label>
-            <input type="text" id="sUrl" name="url"><br><br>
+            <input type="text" id="sUrl" name="url" required><br><br>
             <label for="description">Description:</label>
-            <textarea id="sDescription" name="description" rows='4' cols='50'></textarea>
-            <input type="submit" value="Submit">
+            <textarea id="sDescription" name="description" rows='4' cols='50' required></textarea>
+            <input type="submit" value="Add" class="submit">
         </form>
     </div>
     <div id="editUser">
         <form  method="put" id="editUserForm">
-            <h2>Edit</h2>
-            <label for="name">First name:</label>
+            <h2 id="editing"></h2>
+            <label for="name">Name:</label>
             <input type="text" id="name" name="name" required><br><br>
-            <label for="email">Email:</label>
+            <label for="email">First Appeared:</label>
             <input type="text" id="email" name="email" required><br><br>
             <label for="status">Status:</label>
             <input type="text" id="status" name="status" required><br><br>
             <label for="url">ImageURL:</label>
-            <input type="text" id="eUrl" name="url"><br><br>
+            <input type="text" id="eUrl" name="url" required><br><br>
             <label for="description">Description:</label>
-            <textarea id="eDescription" name="description" rows='4' cols='50'></textarea>
-            <input type="submit" value="Submit" id="submit">
+            <textarea id="eDescription" name="description" rows='4' cols='50' required></textarea>
+            <input type="submit" value="Update" class="submit">
         </form>
     </div>
 </body>
