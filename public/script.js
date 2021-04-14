@@ -21,7 +21,7 @@ function eventListeners(){
 }
 
 async function populate() {
-    const allData = await makeRequest("/api/memes", "GET")
+    const allData = await makeRequest("/api/users", "GET")
     allData.map(i => {
         const userDiv = document.getElementById('allData')
         const img = document.createElement('img')
@@ -57,9 +57,9 @@ function selectCard(event){
         if(event.target.id === card.id){
             selected = true;
             card.classList.add('highlighted');
-            deleteMeme(card.id);
+            deleteUsers(card.id);
             updateSelected(card.id);
-            getSpecificMemeData(card.id);
+            getSpecificUserData(card.id);
         } else {
             card.classList.remove('highlighted');
         }
@@ -77,17 +77,17 @@ function modal(event){
     event.target.id === "new" ? newView.style.display = "flex" : newView.style.display = "none";
 }
 
-function deleteMeme(id) {
-    const deleteMeme = document.getElementById('deleteButton')
-    deleteMeme.addEventListener('click', async () => {
-        await makeRequest("/api/memes/" + id, "DELETE")
+function deleteUsers(id) {
+    const deleteUsers = document.getElementById('deleteButton')
+    deleteUsers.addEventListener('click', async () => {
+        await makeRequest("/api/users/" + id, "DELETE")
         location.reload();
         selected = false;
     }) 
 }
 
 async function updateSelected(id){
-    const allData = await makeRequest("/api/memes", "GET")
+    const allData = await makeRequest("/api/users", "GET")
     const editUser = document.getElementById('editUserForm')
     const editingTitle = document.getElementById('editing')
      
@@ -101,9 +101,9 @@ async function updateSelected(id){
                 editUser.description.value = data.description;
         }
     }
-    editUser.action = `/api/memes/${id}`;
+    editUser.action = `/api/users/${id}`;
     editUser.onsubmit = async () => {
-        await updateMemeData(
+        await updateUserData(
             id, 
             editUser.name.value, 
             editUser.appeared.value, 
@@ -128,8 +128,8 @@ function expandData(){
     }
 }
 
-async function getSpecificMemeData(id) {
-    const meme = await makeRequest("/api/memes/" + id, "GET")
+async function getSpecificUserData(id) {
+    const meme = await makeRequest("/api/users/" + id, "GET")
     if(selected){
         meme.map(i => {
             const img = document.getElementById('exImg');
@@ -147,7 +147,7 @@ async function getSpecificMemeData(id) {
     return meme
 }
 
-async function updateMemeData(id, name, appeared, status, url, description){
+async function updateUserData(id, name, appeared, status, url, description){
     const body = {
         name: name,
         appeared: appeared,
@@ -155,11 +155,11 @@ async function updateMemeData(id, name, appeared, status, url, description){
         url: url,
         description: description
     }
-    const updatedData = await makeRequest("/api/memes/" + id, "PUT", body)
+    const updatedData = await makeRequest("/api/users/" + id, "PUT", body)
     return updatedData
 }
 
-async function saveNewMeme(name, appeared, status, url, description) {
+async function saveNewUser(name, appeared, status, url, description) {
     const body = {
         name: name,
         appeared: appeared,
@@ -167,7 +167,7 @@ async function saveNewMeme(name, appeared, status, url, description) {
         url: url,
         description: description
     }
-    const stuff = await makeRequest("/api/memes", "POST", body)
+    const stuff = await makeRequest("/api/users", "POST", body)
     return stuff
 }
 

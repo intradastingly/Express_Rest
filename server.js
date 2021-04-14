@@ -37,7 +37,7 @@ app.put('/api/users/:id', (req, res) => {
         for(const user of userData){
             if(user.id === paramId){
                 user.name = req.body.name ? req.body.name : user.name;
-                user.email = req.body.email ? req.body.email : user.nemail;
+                user.appeared = req.body.appeared ? req.body.appeared : user.appeared;
                 user.status = req.body.status ? req.body.status  : user.status ;
                 user.url = req.body.url ? req.body.url : user.url ;
                 user.description = req.body.description ? req.body.description : user.description ;
@@ -56,13 +56,13 @@ app.post('/api/users', (req, res) => {
     const newUser = {
         id: uuid.v4(),
         name: req.body.name,
-        email: req.body.email,
+        appeared: req.body.appeared,
         status: req.body.status,
         url: req.body.url,
         description: req.body.description
     }
 
-    if(!newUser.name || !newUser.email || !newUser.status || !newUser.url|| !newUser.description){
+    if(!newUser.name || !newUser.appeared || !newUser.status || !newUser.url|| !newUser.description){
         return res.status(400).json({msg: 'Please include valid inputs'})
     } else {
         userData.push(newUser)
