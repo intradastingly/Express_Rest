@@ -61,6 +61,7 @@ li {
 }
 
 #editUser {
+    padding-bottom: 5rem;
     display: none;
     align-items: center;
     justify-content: center;
@@ -68,6 +69,7 @@ li {
 }
 
 #newUser {
+    padding-bottom: 5rem;
     display: none;
     align-items: center;
     justify-content: center;
@@ -93,9 +95,22 @@ form {
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
-    background-color: rgb(175, 175, 175);
+    width: 40%;
+    background-color: rgb(255, 255, 255);
 }
 
 #exImg {
     width: 50%;
+    padding: 3rem;
+}
+
+#exContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#exDescription {
+    width: 80%;
 }
