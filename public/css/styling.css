@@ -27,6 +27,7 @@ h1 {
 }
 
 .container-image { 
+    pointer-events: none;
     margin: 0.1rem; 
     width: 90%;
 }
