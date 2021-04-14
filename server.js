@@ -39,8 +39,8 @@ app.put('/api/users/:id', (req, res) => {
                 user.name = req.body.name ? req.body.name : user.name;
                 user.email = req.body.email ? req.body.email : user.nemail;
                 user.status = req.body.status ? req.body.status  : user.status ;
-                user.url = req.body.url ? req.body.url  : user.url ;
-                user.description = req.body.description ? req.body.description  : user.description ;
+                user.url = req.body.url ? req.body.url : user.url ;
+                user.description = req.body.description ? req.body.description : user.description ;
                 fs.writeFile('./public/userData.json', JSON.stringify(userData, null, 2), finished)
                 res.json({msg: 'Member updated', user})
             }  
