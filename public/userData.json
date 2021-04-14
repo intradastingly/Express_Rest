@@ -1,20 +1,75 @@
 [
   {
-    "id": "bf392fd7-c9f5-49fd-b663-d78ed9324df4",
-    "name": "Gizmo the dog",
-    "email": "woof@woofer.com",
-    "status": "Alive"
+    "id": "3cf7d30a-a01d-46ec-aa5c-b0ef71ebb50f",
+    "name": "Asaf Läckgren",
+    "email": "asaf_lackgren@hotmail.com",
+    "status": "asf",
+    "url": "https://upload.wikimedia.org/wikipedia/en/c/cc/Wojak_cropped.jpg",
+    "description": "asfas"
   },
   {
-    "id": "6a861be1-f4f1-4131-9180-ecac2a4f702f",
-    "name": "doggo",
+    "id": "5628ace4-f2de-4eca-85ea-6bd4e46ffb96",
+    "name": "Asaf Läckgren",
     "email": "asaf_lackgren@hotmail.com",
-    "status": "afaf"
+    "status": "asfa",
+    "url": "https://ih1.redbubble.net/image.1094571479.7011/st,small,507x507-pad,600x600,f8f8f8.jpg",
+    "description": "Mike Wazowski-Sulley Face Swap refers to an image of Monsters Inc. character Mike Wazowski with the face of character Sulley photoshopped over his own. Online, the image gained popularity as a reaction and has also been used in ironic memes."
   },
   {
-    "id": "f67a04c6-7ea0-42d7-ab36-2ab147ad9b93",
-    "name": "Asaf",
+    "id": "182e07d4-9807-4ac7-827e-c4bb3f018988",
+    "name": "asfasf",
+    "email": "asfasf",
+    "status": "asfa",
+    "url": "https://static01.nyt.com/images/2016/09/28/us/17xp-pepethefrog_web1/28xp-pepefrog-articleLarge.jpg?quality=75&auto=webp&disable=upscale",
+    "description": "asfasf"
+  },
+  {
+    "id": "b1d63853-117a-4ff2-8605-5da7f9930593",
+    "name": "asfasf",
+    "email": "asfasf",
+    "status": "asf",
+    "url": "https://swedishmeme.com/wp-content/uploads/2020/11/meme-exempel-mall.jpg",
+    "description": "asfasf"
+  },
+  {
+    "id": "dd99b991-d8ea-4112-8bb8-486b6bb8279d",
+    "name": "30-Year-Old Boomer",
     "email": "asaf_lackgren@hotmail.com",
-    "status": "fasfa"
+    "status": "Cringefff",
+    "url": "https://i.kym-cdn.com/photos/images/newsfeed/001/716/052/bda.png",
+    "description": "30-Year-Old Boomer is a character spread on 4chan mocking older millennials who enjoy things that are considered to be out of touch with younger millennials, particularly in regards to video games. The phrase generally appears in a greentext story based on a snowclone reading \"that 30 year old boomer who X,\" accompanied by a specific Brainlet Wojak variation."
+  },
+  {
+    "id": "85ad53a8-919f-4943-a5ab-e131bca55698",
+    "name": "Uganda Knuckles",
+    "email": "asaf_lackgren@hotmail.com",
+    "status": "Cringe",
+    "url": "https://i.pinimg.com/736x/61/39/2b/61392b5cee6c8563f84b2f058f8a1aa9.jpg",
+    "description": "fasf"
+  },
+  {
+    "id": "3a0d374c-71bb-49fc-aa68-1eb1c87cd36e",
+    "name": "Zoomer",
+    "email": "none",
+    "status": "af",
+    "url": "https://ih1.redbubble.net/image.1256002679.6854/st,small,507x507-pad,600x600,f8f8f8.jpg",
+    "description": "fasfasd",
+    "appeared": "1990"
+  },
+  {
+    "id": "933baabd-369e-458a-86e8-938246eb3f82",
+    "name": "Flompfffffffffffffffffffs MCinguffff",
+    "appeared": "snumpio@gmail.com",
+    "status": "deadffdddffdddddfffffffffffffffff",
+    "url": "https://www.rd.com/wp-content/uploads/2019/05/American-shorthair-cat-scaled.jpg",
+    "description": "lol"
+  },
+  {
+    "id": "f16206be-4b38-4825-adbc-b36fe9f0bd80",
+    "name": "Asaf Läckgren",
+    "appeared": "asfa",
+    "status": "asfasf",
+    "url": "https://www.rd.com/wp-content/uploads/2019/05/American-shorthair-cat-scaled.jpg",
+    "description": "asf"
   }
 ]

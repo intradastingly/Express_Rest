@@ -12,7 +12,9 @@ Content-Type: application/json
 {
         "name": "Flompfffffffffffffffffffs MCinguffff",
         "status": "deadffdddffdddddfffffffffffffffff",
-        "email": "snumpio@gmail.com"
+        "appeared": "snumpio@gmail.com",
+        "url": "https://www.rd.com/wp-content/uploads/2019/05/American-shorthair-cat-scaled.jpg",
+        "description": "lol"
 }
 
 ###
