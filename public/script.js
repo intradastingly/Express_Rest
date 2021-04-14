@@ -43,11 +43,13 @@ async function populate() {
 function selectCard(event){
     const cards = document.getElementsByClassName('container');
     const deselect = document.getElementById("new");
+    const close = document.getElementById("close")
     for(const card of cards){
         deselect.addEventListener('click', () => {
             selected = false;
             card.classList.remove('highlighted');
         });
+        close.addEventListener('click', () => card.classList.remove('highlighted'))
         if(event.target.id === card.id){
             selected = true;
             card.classList.add('highlighted');
@@ -112,21 +114,16 @@ function expandData(){
 
 async function getSpecificUserData(id) {
     const user = await makeRequest("/api/users/" + id, "GET")
-    const expandInfo = document.getElementById('expandedData')
-    user.map(i => {
-        const containerDiv = document.createElement('div');
-        const name = document.createElement('li');
-        const email = document.createElement('li');
-        const status = document.createElement('li');
-        containerDiv.id = 'exContainer';
-        name.innerHTML = "name: " + i.name;
-        email.innerHTML = "email: " + i.email;
-        status.innerHTML = "status: "+ i.status;
-        containerDiv.appendChild(name)
-        containerDiv.appendChild(email)
-        containerDiv.appendChild(status)
-        expandInfo.appendChild(containerDiv)    
-    })
+    if(selected){
+        user.map(i => {
+            const name = document.getElementById('exName');
+            const email = document.getElementById('exEmail');
+            const status = document.getElementById('exStatus');
+            name.innerHTML = "name: " + i.name;
+            email.innerHTML = "email: " + i.email;
+            status.innerHTML = "status: "+ i.status;
+        }) 
+    } 
     return user
 }
 
