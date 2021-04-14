@@ -27,16 +27,16 @@ async function populate() {
         const img = document.createElement('img')
         const containerDiv = document.createElement('div');
         const name = document.createElement('li');
-        const email = document.createElement('li');
         const status = document.createElement('li');
         containerDiv.className = 'container';
         containerDiv.id = i.id;
-        img.src = i.url
+        img.src = i.url;
+        img.width = 200;
+        img.height = 200;
         name.innerHTML = "name: " + i.name;
-        email.innerHTML = "email: " + i.email;
         status.innerHTML = "status: "+ i.status;
+        containerDiv.appendChild(img)
         containerDiv.appendChild(name)
-        containerDiv.appendChild(email)
         containerDiv.appendChild(status)
         userDiv.appendChild(containerDiv)    
     })
@@ -89,14 +89,16 @@ async function updateSelected(id){
     const editUser = document.getElementById('editUserForm')
     for(const data of allData){
             if(data.id === id){
-            editUser.name.value = data.name
-            editUser.email.value = data.email
-            editUser.status.value = data.status
+                editUser.name.value = data.name;
+                editUser.email.value = data.email;
+                editUser.status.value = data.status;
+                editUser.url.value = data.url;
+                editUser.description.value = data.description;
         }
     }
     editUser.action = `/api/users/${id}`;
     editUser.onsubmit = async () => {
-        await updateUserData(id, editUser.name.value, editUser.email.value, editUser.status.value) 
+        await updateUserData(id, editUser.name.value, editUser.email.value, editUser.status.value, editUser.url.value, editUser.description.value) 
         location.reload();
         selected = false;
     }
@@ -129,21 +131,25 @@ async function getSpecificUserData(id) {
     return user
 }
 
-async function updateUserData(id, name, email, status){
+async function updateUserData(id, name, email, status, url, description){
     const body = {
         name: name,
         email: email,
-        status: status
+        status: status,
+        url: url,
+        description: description
     }
     const updatedData = await makeRequest("/api/users/" + id, "PUT", body)
     return updatedData
 }
 
-async function saveNewUser(name, email, dead) {
+async function saveNewUser(name, email, status, url, description) {
     const body = {
         name: name,
         email: email,
-        status: dead
+        status: status,
+        url: url,
+        description: description
     }
     const stuff = await makeRequest("/api/users", "POST", body)
     return stuff
