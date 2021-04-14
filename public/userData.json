@@ -1,75 +1,98 @@
 [
   {
-    "id": "3cf7d30a-a01d-46ec-aa5c-b0ef71ebb50f",
-    "name": "Asaf Läckgren",
-    "email": "asaf_lackgren@hotmail.com",
-    "status": "asf",
-    "url": "https://upload.wikimedia.org/wikipedia/en/c/cc/Wojak_cropped.jpg",
-    "description": "asfas"
+    "id": "81099e94-1527-4220-8621-180e5cfeccc2",
+    "name": "Pepe",
+    "appeared": "2016",
+    "status": "Based",
+    "url": "https://c.files.bbci.co.uk/16620/production/_91408619_55df76d5-2245-41c1-8031-07a4da3f313f.jpg",
+    "description": "Pepe the Frog is an anthropomorphic frog character from the comic series Boy’s Club by Matt Furie. On 4chan, various illustrations of the frog creature have been used as reaction faces, including Feels Good Man, Sad Frog, Angry Pepe, Smug Frog and Well Meme'd."
   },
   {
-    "id": "5628ace4-f2de-4eca-85ea-6bd4e46ffb96",
-    "name": "Asaf Läckgren",
-    "email": "asaf_lackgren@hotmail.com",
-    "status": "asfa",
-    "url": "https://ih1.redbubble.net/image.1094571479.7011/st,small,507x507-pad,600x600,f8f8f8.jpg",
+    "id": "30cbe0b0-c14d-4b09-9142-1f6ae2ba1904",
+    "name": "Wojak",
+    "appeared": "2018",
+    "status": "Cringe",
+    "url": "https://upload.wikimedia.org/wikipedia/en/c/cc/Wojak_cropped.jpg",
+    "description": "Feels Guy, also known as Wojak, is an MS Paint illustration of a bald man with a sad expression on his face. It is often used as a reaction image to represent feelings such as melancholy, regret or loneliness."
+  },
+  {
+    "id": "aac2af4a-a0d4-44e1-b9ad-e489b2037d7c",
+    "name": "Shrek",
+    "appeared": "2001",
+    "status": "Cringe",
+    "url": "https://i.pinimg.com/originals/1f/04/85/1f048500d47614a086ee689bcf024233.jpg",
+    "description": "Shrek is the titular character from the animated film series by the same name created by DreamWorks Studios based on a book[4] by American cartoonist William Steig. Although fans for the character already existed as early as 2001 with the release of the first film, the character didn't got substantial cult-like following online until 2010 to 2012, after Shrek became a popular character in pun jokes and greentext stories. These fans commonly refer to themselves as \"Brogres\", in similar vein to the My Little Pony: Friendship is Magic enthusiasts known as \"Bronies\".\r\n\r\n"
+  },
+  {
+    "id": "c6acdc47-c34c-40b8-9c51-4c29e168ded9",
+    "name": "Zoomer Wojak",
+    "appeared": "2018",
+    "status": "Cringe",
+    "url": "https://ih1.redbubble.net/image.795381435.9227/mp,840x830,matte,f8f8f8,t-pad,1000x1000,f8f8f8.u3.jpg",
+    "description": "Zoomer is a colloquial name for the members of Generation Z (Gen Z). The meme originated as a Wojak character spread on 4chan mocking Gen Z adolescents and young adults, similar to how 30-Year-Old Boomer is used to mock older millennials. Often used in copypastas such as \"that 15 year old zoomer who proposed to his crush on messenger\", Zoomer is depicted as Wojak wearing shaved sides, slicked back haircut and round glasses, who loves mumble rap and battle royale video games."
+  },
+  {
+    "id": "1b980ab7-5c42-41d2-9591-7f6e30ab9ea8",
+    "name": "Mike Wazowski",
+    "appeared": "2019",
+    "status": "Based",
+    "url": "https://www.meme-arsenal.com/memes/c4b4f89aeb7b6b9da275959cec6d2741.jpg",
     "description": "Mike Wazowski-Sulley Face Swap refers to an image of Monsters Inc. character Mike Wazowski with the face of character Sulley photoshopped over his own. Online, the image gained popularity as a reaction and has also been used in ironic memes."
   },
   {
-    "id": "182e07d4-9807-4ac7-827e-c4bb3f018988",
-    "name": "asfasf",
-    "email": "asfasf",
-    "status": "asfa",
-    "url": "https://static01.nyt.com/images/2016/09/28/us/17xp-pepethefrog_web1/28xp-pepefrog-articleLarge.jpg?quality=75&auto=webp&disable=upscale",
-    "description": "asfasf"
+    "id": "0e0deb1e-9601-4258-91f2-42abd9ef0c11",
+    "name": "Meme Man",
+    "appeared": "2014",
+    "status": "Based",
+    "url": "https://static.wikia.nocookie.net/surrealmemes/images/0/09/Meme_Man_HD.png/revision/latest?cb=20190103112747",
+    "description": "Meme Man refers to a grey 3D rendering of a human head which functions as the mascot for the Facebook page \"Special meme fresh.\" The head is frequently used in absurd edits, surreal memes and shitposting."
   },
   {
-    "id": "b1d63853-117a-4ff2-8605-5da7f9930593",
-    "name": "asfasf",
-    "email": "asfasf",
-    "status": "asf",
-    "url": "https://swedishmeme.com/wp-content/uploads/2020/11/meme-exempel-mall.jpg",
-    "description": "asfasf"
-  },
-  {
-    "id": "dd99b991-d8ea-4112-8bb8-486b6bb8279d",
+    "id": "98f3e0b4-9da2-460e-9001-9393ae4d0dd9",
     "name": "30-Year-Old Boomer",
-    "email": "asaf_lackgren@hotmail.com",
-    "status": "Cringefff",
-    "url": "https://i.kym-cdn.com/photos/images/newsfeed/001/716/052/bda.png",
+    "appeared": "2018",
+    "status": "Cringe",
+    "url": "https://i.redd.it/p4pceyy6dhv31.jpg",
     "description": "30-Year-Old Boomer is a character spread on 4chan mocking older millennials who enjoy things that are considered to be out of touch with younger millennials, particularly in regards to video games. The phrase generally appears in a greentext story based on a snowclone reading \"that 30 year old boomer who X,\" accompanied by a specific Brainlet Wojak variation."
   },
   {
-    "id": "85ad53a8-919f-4943-a5ab-e131bca55698",
+    "id": "1a236d48-fe1b-403f-a20d-3f4e11f7f3d5",
     "name": "Uganda Knuckles",
-    "email": "asaf_lackgren@hotmail.com",
+    "appeared": "2017",
+    "status": "Based",
+    "url": "https://i.pinimg.com/originals/b8/8f/b5/b88fb507d9b32602662316f753825094.png",
+    "description": "Ugandan Knuckles is the nickname given to a depiction of the character Knuckles from the Sonic franchise created by YouTuber Gregzilla, which is often used as an avatar by players in the multiplayer game VRChat who repeat phrases like \"do you know the way\" and memes associated with the country Uganda, most notably the film Who Killed Captain Alex? and Zulul. The character is associated with the expression \"do you know the way\", which is typically spoken in a mock African accent and phonetically spelled as \"do you know de wey.\" Along with the question in hand a VR user will start making \"spitting\" sounds, followed by a \"mob like\" mentality. Unsuspecting VRchat users fall victim to Ugandan Knuckles \"promise\" of showing \"de wey\". Only followed by a mass trolling."
+  },
+  {
+    "id": "adfdca85-9cb9-440d-856d-0f13023dfb3b",
+    "name": "Dat boi",
+    "appeared": "2016",
     "status": "Cringe",
-    "url": "https://i.pinimg.com/736x/61/39/2b/61392b5cee6c8563f84b2f058f8a1aa9.jpg",
-    "description": "fasf"
+    "url": "https://upload.wikimedia.org/wikipedia/en/f/f9/Dat_Boi_%28resized_50%25%29.jpg",
+    "description": "Dat Boi (a colloquial pronunciation of “that boy”) is a nickname given to a 3D character model of a green frog riding a unicycle, typically accompanied by catchphrases like \"here comes dat boi!\" and \"o shit waddup,\" that went viral on social media in early 2016."
   },
   {
-    "id": "3a0d374c-71bb-49fc-aa68-1eb1c87cd36e",
-    "name": "Zoomer",
-    "email": "none",
-    "status": "af",
-    "url": "https://ih1.redbubble.net/image.1256002679.6854/st,small,507x507-pad,600x600,f8f8f8.jpg",
-    "description": "fasfasd",
-    "appeared": "1990"
+    "id": "9380f622-61c4-45d1-9214-47a12b42cd04",
+    "name": "Spurdo Spärde",
+    "appeared": "2009",
+    "status": "Based",
+    "url": "https://pbs.twimg.com/profile_images/378800000752037060/5c34ba2b64b2ffc6732a496853d75010_400x400.png",
+    "description": "Spurdo Spärde is a poorly drawn character based on the sprite image of Pedobear. It was originally conceived in the Finnish imageboard Kuvalauta to mock the newcomers who often flooded the site with hackneyed reposts, one of the main materials being images of Pedobear. The character is coarsely drawn on purpose and accompanied by captions that are misspelled and stylized in all cap."
   },
   {
-    "id": "933baabd-369e-458a-86e8-938246eb3f82",
-    "name": "Flompfffffffffffffffffffs MCinguffff",
-    "appeared": "snumpio@gmail.com",
-    "status": "deadffdddffdddddfffffffffffffffff",
-    "url": "https://www.rd.com/wp-content/uploads/2019/05/American-shorthair-cat-scaled.jpg",
-    "description": "lol"
+    "id": "3e354068-84c9-4c93-b45e-c1851ff0147a",
+    "name": "Surprised Pikachu",
+    "appeared": "2018",
+    "status": "Based",
+    "url": "https://external-preview.redd.it/HmFkuA90ffXHZ8W-vs8dOfjvnKAupQxIAzMycZ7GQxA.png?auto=webp&s=a2f3d1a5a5fb8052e7429ef56cfc943d78a91993",
+    "description": "Surprised Pikachu refers to a screenshot from the Pokémon anime of the character Pikachu with its mouth agape, as though it were surprised at something. In the autumn of 2018, the image was used as a reaction image paired with captions where a set-up leads to a predictable outcome that nevertheless leaves one surprised."
   },
   {
-    "id": "f16206be-4b38-4825-adbc-b36fe9f0bd80",
-    "name": "Asaf Läckgren",
-    "appeared": "asfa",
-    "status": "asfasf",
-    "url": "https://www.rd.com/wp-content/uploads/2019/05/American-shorthair-cat-scaled.jpg",
-    "description": "asf"
+    "id": "3a11a6f4-5e39-422f-bfe6-ecfec1ad6cdd",
+    "name": "Ooh face",
+    "appeared": "2000",
+    "status": "Based",
+    "url": "https://i.kym-cdn.com/entries/icons/original/000/036/023/bale-1.jpg",
+    "description": "Patrick Bateman's Ooh Face, also known as Christian Bale's Ooh Face, is a reaction image macro featuring a screenshot from the 2000 satirical horror film American Psycho. Memers use the image in a manner similar to other Ooh Faces, expressing feelings of ecstasy."
   }
 ]

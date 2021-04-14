@@ -34,8 +34,8 @@ async function populate() {
         containerDiv.id = i.id;
         img.src = i.url;
         img.className = "container-image";
-        name.innerHTML = "name: " + i.name;
-        status.innerHTML = "status: "+ i.status;
+        name.innerHTML = "Name: " + i.name;
+        status.innerHTML = "Status: "+ i.status;
         containerDiv.appendChild(img)
         textContainerDiv.appendChild(name)
         textContainerDiv.appendChild(status)
@@ -138,10 +138,10 @@ async function getSpecificUserData(id) {
             const status = document.getElementById('exStatus');
             const description = document.getElementById('exDescription');
             img.src = i.url
-            name.innerHTML = "name: " + i.name;
-            appeared.innerHTML = "appeared: " + i.appeared;
-            status.innerHTML = "status: " + i.status;
-            description.innerHTML = "description" + i.description; 
+            name.innerHTML = "Name: " + i.name;
+            appeared.innerHTML = "First appeared: " + i.appeared;
+            status.innerHTML = "Status: " + i.status;
+            description.innerHTML = "Description: " + i.description; 
         }) 
     } 
     return meme

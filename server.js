@@ -7,7 +7,6 @@ const fs = require('fs')
 
 const rawData = fs.readFileSync('./public/userData.json')
 const userData = JSON.parse(rawData)
-console.log(userData)
 
 //serve static html page
 app.use(express.static('public'))
@@ -70,7 +69,6 @@ app.post('/api/users', (req, res) => {
         res.status(201).json(userData)
     }
 })
-
 
 app.delete('/api/users/:id', (req,res) => {
     const paramId = req.params.id
