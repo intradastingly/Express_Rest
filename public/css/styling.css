@@ -23,6 +23,7 @@ h3 {
     row-gap: 2%;
     width: 80%;
     margin: auto;
+    padding: 2rem;
 }
 
 .container {
@@ -125,7 +126,7 @@ form {
     justify-content: center;
     align-items: flex-start;
     flex-direction: row;
-    padding: 2rem;
+    padding: 2rem 2rem 0rem 2rem;
 }
 
 #exDescription {
@@ -149,4 +150,8 @@ form {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#close {
+    margin-top: 0rem;
 }
