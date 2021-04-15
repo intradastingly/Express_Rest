@@ -52,7 +52,8 @@ h3 {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 6%;
+    padding-top: 3%;
+    padding-bottom: 6%;
 }
 
 .button {
@@ -157,3 +158,15 @@ form {
 #close {
     margin-top: 0rem;
 }
+
+@media only screen and (max-width: 1154px) {
+    #button-container {
+        padding-top: 8%;
+    }
+  }
+
+  @media only screen and (max-width: 858px) {
+    #button-container {
+        padding-top: 30%;
+    }
+  }
