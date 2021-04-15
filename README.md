@@ -1,6 +1,6 @@
 
 
-#Meme Database
+# Meme Database
 Express &amp; Rest Project
 ## Project description 
 This is a school project for the FED20G class in front-end development. The page is a simple database api where data is taking from a json file and displayed in the browser. The user can create a new entity, edit an entity, retrieve data on a specific entity as well as delete an entity. The project is written in javascript, node and express and includes a rest client. 
