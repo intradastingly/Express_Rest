@@ -71,7 +71,9 @@ li {
 }
 
 .highlighted {
-    background-color: blueviolet;
+    border-style: solid;
+    border-color:blueviolet;
+    border-width: 0.5rem;    
 }
 
 #editUser {
