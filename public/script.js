@@ -27,18 +27,15 @@ async function populate() {
         const img = document.createElement('img')
         const containerDiv = document.createElement('div');
         const textContainerDiv = document.createElement('div');
-        const name = document.createElement('li');
-        const status = document.createElement('li');
+        const name = document.createElement('h3');
         containerDiv.className = 'container';
         textContainerDiv.className = 'textContainerDiv';
         containerDiv.id = i.id;
         img.src = i.url;
         img.className = "container-image";
-        name.innerHTML = "Name: " + i.name;
-        status.innerHTML = "Status: "+ i.status;
+        name.innerHTML = i.name;
         containerDiv.appendChild(img)
         textContainerDiv.appendChild(name)
-        textContainerDiv.appendChild(status)
         containerDiv.appendChild(textContainerDiv)
         userDiv.appendChild(containerDiv)    
     })

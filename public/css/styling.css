@@ -1,45 +1,57 @@
 body {
     margin: 0;
-    background: rgb(98, 98, 143);
+    background: rgb(154, 154, 201);
+    font-family: Tahoma, sans-serif;
 }
 
 h1 {
     text-align: center;
+    padding: 2rem;
+}
+
+h3 {
+    padding: 0;
+    margin: 0;
 }
 
 #allData {
     display: grid;
     align-items: center;
     justify-content: center;
-    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
-    width: 60%;
+    grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+    column-gap: 1%;
+    row-gap: 2%;
+    width: 80%;
     margin: auto;
 }
 
 .container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
-    margin: 1rem;
-    padding: 1rem;
     border-style: double;
+    background: rgb(128, 128, 185);
+    height: 100%;
 }
 
 .container-image { 
-    pointer-events: none;
-    margin: 0.1rem; 
-    width: 90%;
+    pointer-events: none; 
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
 
 .textContainerDiv {
-    padding-top: 0.5rem;
+    pointer-events: none; 
+    padding: 1.5rem;
 }
 
 #button-container {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding-top: 6%;
 }
 
 .button {
@@ -88,7 +100,7 @@ form {
     align-items: center;
     justify-content: center;
     position: fixed;
-    width: 80%;
+    width: 100%;  
 }
 
 #filler {
@@ -96,22 +108,45 @@ form {
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
-    width: 40%;
-    background-color: rgb(255, 255, 255);
+    background: rgb(154, 154, 201);
+    border-style: double;
+    width: 40rem;
 }
 
 #exImg {
-    width: 50%;
-    padding: 3rem;
+    width: 50%; 
+    height: 50%;
+    padding: 1rem;
+    object-fit: contain;
 }
 
 #exContainer {
     display: flex;
     justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    align-items: flex-start;
+    flex-direction: row;
+    padding: 2rem;
 }
 
 #exDescription {
-    width: 80%;
+    width: 95%;
+    font-size: 1.1rem;
+}
+
+.exLi {
+    font-size: 1.2rem;
+}
+
+.column{
+    padding-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
