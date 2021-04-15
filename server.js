@@ -3,7 +3,6 @@ const uuid = require('uuid');
 const app = express();
 const PORT = process.env.PORT || 3000;
 const fs = require('fs')
-/* const userData = require('./Users') */
 
 const rawData = fs.readFileSync('./public/userData.json')
 const userData = JSON.parse(rawData)
@@ -13,10 +12,10 @@ app.use(express.static('public'))
 
 //parser 
 app.use(express.json())
-app.use(express.urlencoded({extended: false}))
+app.use(express.urlencoded({ extended: false }))
 
 //Gets all Users
-app.get('/api/users', (req, res) => {    
+app.get('/api/users', (req, res) => {
     res.json(userData)
 })
 
@@ -24,34 +23,34 @@ app.get('/api/users', (req, res) => {
 app.get('/api/users/:id', (req, res) => {
     const paramId = req.params.id
     const found = userData.find(user => user.id === paramId)
-    found ? res.json(userData.filter(user => user.id === paramId)) 
-          : res.status(400).json({msg: `No user with the id of ${paramId}`})
+    found ? res.json(userData.filter(user => user.id === paramId))
+        : res.status(400).json({ msg: `No user with the id of ${paramId}` })
 })
 
 //Updates single User
 app.put('/api/users/:id', (req, res) => {
     const paramId = req.params.id
     const found = userData.find(user => user.id === paramId)
-    if(found){
-        for(const user of userData){
-            if(user.id === paramId){
+    if (found) {
+        for (const user of userData) {
+            if (user.id === paramId) {
                 user.name = req.body.name ? req.body.name : user.name;
                 user.appeared = req.body.appeared ? req.body.appeared : user.appeared;
-                user.status = req.body.status ? req.body.status  : user.status ;
-                user.url = req.body.url ? req.body.url : user.url ;
-                user.description = req.body.description ? req.body.description : user.description ;
+                user.status = req.body.status ? req.body.status : user.status;
+                user.url = req.body.url ? req.body.url : user.url;
+                user.description = req.body.description ? req.body.description : user.description;
                 fs.writeFile('./public/userData.json', JSON.stringify(userData, null, 2), finished)
-                res.json({msg: 'Member updated', user})
-            }  
+                res.json({ msg: 'Member updated', user })
+            }
         }
     } else {
-        res.status(400).json({msg: `No user with the id of ${paramId}`})
+        res.status(400).json({ msg: `No user with the id of ${paramId}` })
     }
 })
 
 //Posts new user
 app.post('/api/users', (req, res) => {
-    
+
     const newUser = {
         id: uuid.v4(),
         name: req.body.name,
@@ -61,8 +60,8 @@ app.post('/api/users', (req, res) => {
         description: req.body.description
     }
 
-    if(!newUser.name || !newUser.appeared || !newUser.status || !newUser.url|| !newUser.description){
-        return res.status(400).json({msg: 'Please include valid inputs'})
+    if (!newUser.name || !newUser.appeared || !newUser.status || !newUser.url || !newUser.description) {
+        return res.status(400).json({ msg: 'Please include valid inputs' })
     } else {
         userData.push(newUser)
         fs.writeFile('./public/userData.json', JSON.stringify(userData, null, 2), finished)
@@ -70,20 +69,20 @@ app.post('/api/users', (req, res) => {
     }
 })
 
-app.delete('/api/users/:id', (req,res) => {
+app.delete('/api/users/:id', (req, res) => {
     const paramId = req.params.id
     const found = userData.find(user => user.id === paramId)
     const findIndex = userData.findIndex(a => a.id === paramId)
-    if(found){
+    if (found) {
         userData.splice(findIndex, 1)
         fs.writeFile('./public/userData.json', JSON.stringify(userData, null, 2), finished)
     } else {
-        res.status(400).json({ msg: `No User with the id of ${paramId}`}) 
-    } 
+        res.status(400).json({ msg: `No User with the id of ${paramId}` })
+    }
     res.json(userData)
 })
 
-function finished(err){
+function finished(err) {
     console.log(err)
 }
 
