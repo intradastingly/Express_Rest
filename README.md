@@ -12,7 +12,7 @@ Some url image links don't work with the 'new' and 'edit' submits.
 
 1. 4 endpoints
 2. rest client
-3. Data saved to JSON file instead of server fil
+3. Data saved to JSON file instead of server file
 4. Github used
 5. Readme 
 6. JSON file updates dynamically on update, delete, and create new
