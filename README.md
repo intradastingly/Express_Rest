@@ -9,7 +9,7 @@ To use the site, simply select a card and either 'edit' it make changes to the s
 #### Bugs
 Some url image links don't work with the 'new' and 'edit' submits. 
 ### Project requirements met
-Markup : 
+
 1. 4 end points
 2. rest client
 3. Data saved to JSON file instead of server fil
