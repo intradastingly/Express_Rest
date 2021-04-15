@@ -89,7 +89,7 @@ async function updateSelected(id){
     const allData = await makeRequest("/api/users", "GET")
     const editUser = document.getElementById('editUserForm')
     const editingTitle = document.getElementById('editing')
-     
+    editUser.action = `/api/users/${id}`;
     for(const data of allData){
             if(data.id === id){
                 editingTitle.innerHTML = "Editing: " + data.name;
@@ -100,7 +100,6 @@ async function updateSelected(id){
                 editUser.description.value = data.description;
         }
     }
-    editUser.action = `/api/users/${id}`;
     editUser.onsubmit = async () => {
         await updateUserData(
             id, 
@@ -166,8 +165,8 @@ async function saveNewUser(name, appeared, status, url, description) {
         url: url,
         description: description
     }
-    const stuff = await makeRequest("/api/users", "POST", body)
-    return stuff
+    const newData = await makeRequest("/api/users", "POST", body)
+    return newData
 }
 
 async function makeRequest(url,method,body){
