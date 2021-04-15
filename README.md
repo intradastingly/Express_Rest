@@ -24,3 +24,5 @@ To intitiate the project clone it from the [Github repository](https://github.co
 install all dependencies with `npm i`.
 
 Run the application with `npm start`.
+
+Navigate to http://localhost:3000
