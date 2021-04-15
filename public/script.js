@@ -1,6 +1,16 @@
 window.addEventListener('load', initSite);
 
+const deleteItem = document.getElementById('deleteButton')
+deleteItem.addEventListener('click', () => {
+    if(selectedCard){
+        makeRequest("/api/users/" + selectedCard, "DELETE")
+        location.reload();
+        selected = false;
+    }
+}) 
+
 let selected = false;
+let selectedCard = undefined;
 
 function initSite() {
     populate()
@@ -44,7 +54,7 @@ async function populate() {
 function selectCard(event){
     const cards = document.getElementsByClassName('container');
     const deselect = document.getElementById("new");
-    const close = document.getElementById("close")
+    const close = document.getElementById("close");
     for(const card of cards){
             deselect.addEventListener('click', () => {
                 selected = false;
@@ -54,7 +64,7 @@ function selectCard(event){
         if(event.target.id === card.id){
             selected = true;
             card.classList.add('highlighted');
-            deleteUsers(card.id);
+            selectedCard = card.id
             updateSelected(card.id);
             getSpecificUserData(card.id);
         } else {
@@ -74,14 +84,6 @@ function modal(event){
     event.target.id === "new" ? newView.style.display = "flex" : newView.style.display = "none";
 }
 
-function deleteUsers(id) {
-    const deleteUsers = document.getElementById('deleteButton')
-    deleteUsers.addEventListener('click', async () => {
-        await makeRequest("/api/users/" + id, "DELETE")
-        location.reload();
-        selected = false;
-    }) 
-}
 
 async function updateSelected(id){
     const allData = await makeRequest("/api/users", "GET")
