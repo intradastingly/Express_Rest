@@ -25,4 +25,4 @@ install all dependencies with `npm i`.
 
 Run the application with `npm start`.
 
-Navigate to http://localhost:3000
+Navigate to http://localhost:3000 in a browser.
